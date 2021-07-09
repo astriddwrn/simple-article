@@ -17,6 +17,7 @@ if ($conn) {
                 $data = array(
                     "article_title" => test_input($_POST["arTitle"]),
                     "article_content" => $_POST["arContent"],
+                    "article_contentn" => $_POST["arContentn"],
                     "article_image" => test_input($_FILES["arImage"]["name"]),
                     "article_created_time" => date('Y-m-d H:i:s'),
                     "id_categorie" => test_input($_POST["arCategory"]),
@@ -90,6 +91,7 @@ if ($conn) {
                     "comment_username" => test_input($_POST["username"]),
                     // "comment_avatar" => test_input($_POST["comment_avatar"]),
                     "comment_content" => test_input($_POST["comment"]),
+                    "comment_contentn" => test_input($_POST["comment"]),
                     "comment_date" => date('Y-m-d H:i:s'),
                     "id_article" =>  test_input($_POST["id_article"])
                 );

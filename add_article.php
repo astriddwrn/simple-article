@@ -47,6 +47,12 @@ $authors = $stmt->fetchAll();
                         </div>
 
                         <div class="form-group">
+                            <label for="arContentn">Contentn</label>
+
+                            <textarea class="form-control" name="arContentn" id="arContentn" rows="3" required></textarea>
+                        </div>
+
+                        <div class="form-group">
                             <label for="arImage">Image</label>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" name="arImage" id="arImage">

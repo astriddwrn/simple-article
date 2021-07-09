@@ -54,6 +54,7 @@ $data = $stmt->fetchAll();
                             <th scope='col'>ID</th>
                             <th scope='col'>Judul</th>
                             <th scope='col'>Isi Konten</th>
+                            <th scope='col'>Isi Konten2</th>
                             <th scope='col'>Gambar</th>
                             <th scope='col'>Dibuat pada</th>
                             <th scope='col'>Kategori</th>
@@ -71,6 +72,7 @@ $data = $stmt->fetchAll();
                             <td><?= $row['article_id'] ?></td>
                             <td><?= $row['article_title'] ?></td>
                             <td class="text-break"><?= strip_tags(substr($row['article_content'], 0, 40)) . "..." ?></td>
+                            <td class="text-break"><?= strip_tags(substr($row['article_contentn'], 0, 40)) . "..." ?></td>
                             <td><img src="img/article/<?= $row['article_image'] ?>" style="width: 100px; height: auto;"></td>
                             <td><?= $row['article_created_time'] ?></td>
                             <td><?= $row['category_name'] ?></td>

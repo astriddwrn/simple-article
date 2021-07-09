@@ -16,6 +16,7 @@ if ($conn) {
                 // Update DataBase
                 $title = test_input($_POST["arTitle"]);
                 $content = $_POST["arContent"];
+                $contentn = $_POST["arContentn"];
                 $categorie = test_input($_POST["arCategory"]);
                 $author = test_input($_POST["arAuthor"]);
                 $imageName = test_input($_FILES["arImage"]["name"]);
@@ -29,12 +30,12 @@ if ($conn) {
 
                 try {
                     $sql = "UPDATE `article`
-                        SET `article_title`= ?, `article_content`= ?,`article_image`=?, `id_categorie`=?, `id_author`= ?
+                        SET `article_title`= ?, `article_content`= ?, `article_contentn`= ?,`article_image`=?, `id_categorie`=?, `id_author`= ?
                         WHERE `article_id` = ?";
 
                     $stmt = $conn->prepare($sql);
 
-                    $stmt->execute([$title, $content, $imageName, $categorie, $author, $urlId]);
+                    $stmt->execute([$title, $content, $contentn, $imageName, $categorie, $author, $urlId]);
 
                     // echo a message to say the UPDATE succeeded
                     echo "Article UPDATED successfully";

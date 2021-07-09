@@ -60,6 +60,13 @@ $authors = $stmt->fetchAll();
                         </div>
 
                         <div class="form-group">
+                            <label for="arContentn">Content Dua</label>
+                            <textarea class="form-control" name="arContentn" id="arContentn" rows="3">
+                            <?= $article["article_contentn"] ?>
+                            </textarea>
+                        </div>
+
+                        <div class="form-group">
                             <label for="UploadImage">Image</label>
                             <div class="custom-file">
                                 <input type="file" class="custom-file-input" name="arImage" id="arImage">
@@ -143,6 +150,7 @@ $authors = $stmt->fetchAll();
     <!-- Text Editor Script -->
     <script>
         CKEDITOR.replace('arContent');
+        CKEDITOR.replace('arContentn');
     </script>
 
 </body>
