@@ -1,0 +1,119 @@
+@import url('base.css');
+@import url('blog.css');
+
+.dasbor{
+    color: var(--dark-green);
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.section{
+    font-size: 1.5rem;
+    color: var(--light-green);
+}
+
+.form{
+    margin: 0 auto;
+}
+
+form label{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.table{
+    font-family: 'Poppins', sans-serif;
+    width: 90vw;
+    margin: 0 auto;
+}
+
+.row{
+    width:100%;
+}
+
+th:first-child{
+    border-radius:  10px 0 0 10px;
+}
+
+th:last-child{
+    border-radius:  0 10px 10px 0;
+}
+
+thead{
+    border: transparent;
+}
+
+th{
+    border: 0;
+}
+
+td{
+    border-bottom: 0.5px solid #DEDEDE !important;
+}
+
+thead tr{
+    background-color: #DEDEDE;
+}
+
+.icon{
+    width: 30px;
+}
+
+.judul{
+    width: 40%;
+}
+
+.aksi{
+    width: 150px;
+}
+
+.add{
+    width: 50px;
+    margin-right: 5%;
+}
+
+.count{
+    float: right;
+}
+
+.error-msg{
+    color: rgb(228, 48, 48);
+}
+
+@media all and (max-width: 768px) {
+    .penulis, .kategori{
+        display: none;
+    }
+    .judul{
+        width:65%;
+    }
+    .aksi{
+        width: 35%;
+    }
+    .dasbor{
+        font-size: 3rem;
+    }
+}
+@media all and (max-width: 480px) {
+    .view{
+        display: none;
+    }
+    .icon{
+        width: 25px;
+    }
+    .judul{
+        width:90%;
+    }
+    .aksi{
+        width: 10%;
+    }
+    .edit{
+        margin: 0 !important;
+    }
+    .dasbor{
+        font-size: 2rem;
+    }
+    
+}

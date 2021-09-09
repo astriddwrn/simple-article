@@ -12,8 +12,10 @@
 
 .artikels .img-cont img{
     object-fit: cover !important;
-    width:100%;
+    width:100% !important;
     height:200px;
+    /* text-indent:-9999px */
+    color: transparent;
 }
 
 nav{
@@ -21,7 +23,7 @@ nav{
     width:100%;
     background-color: white;
     z-index: 9999;
-    box-shadow: 0px 3px 30px #888888;
+    box-shadow: 0px 1px 20px #000000;
     transition: top .5s ease-in-out;
 }
 
@@ -84,7 +86,6 @@ nav img{
     height:75vh;
 }
 
-
 .hero .text{
     z-index: 100;
     bottom: 5rem;
@@ -102,7 +103,7 @@ nav img{
 
 .hero .title{
     font-size: 3rem;
-    color: #9BFFB3;
+    color: var(--light-green);
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.77);
     line-height: 115%;
     font-family: 'Poppins', sans-serif;
@@ -111,7 +112,7 @@ nav img{
 
 .hero .description{
     font-size: 1rem;
-    color: #9BFFB3;
+    color: var(--light-green);
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.77);
     font-family: 'Poppins', sans-serif;
 }
@@ -123,6 +124,7 @@ nav img{
 }
 
 .hero .arrow img{
+    width:80px;
     border-radius: 10px;
 }
 
@@ -163,11 +165,13 @@ nav img{
 .artikels .img-cont{
     height: 200px;
     border-radius: 10px;
+    background-image: url('https://i.pinimg.com/originals/ec/d6/bc/ecd6bc09da634e4e2efa16b571618a22.gif');
+    background-position: center;
 }
 
 .artikels .title{
     font-size:1.5rem;
-    color: var(--dark-green);
+    color: black;
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
 }
@@ -184,16 +188,56 @@ nav img{
     color: var(--gray);
     text-align: justify;
     text-justify: inter-word;
+    width: 90%;
+}
+
+.pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 3rem 0;
+}
+
+.pagination a{
+    border-radius: 8px;
+    padding: .5rem 1rem;
+    margin: 0 .5rem;
+}
+
+.pagination li:not(.disabled) a{
+    background-color: var(--dark-green);
+    color: white !important;
+    border: 1px solid var(--dark-green);
+    transition: all 0.2s ease-in-out;
+}
+
+.pagination li:not(.disabled) a:hover{
+    background-color: white !important;
+    color: var(--dark-green) !important;
+    transition: all 0.2s ease-in-out;
+}
+
+.pagination .disabled a{
+    background-color: rgb(185, 185, 185);
+    color: white !important;
+    border: 1px solid rgb(185, 185, 185);
+    cursor: default;
 }
 
 .artikels .category{
     font-size: 1rem;
 }
 
+.more-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 2rem 0 5rem 0;
+}
+
 .more{
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    color: var(--gray);
+    padding: 1rem 2rem;
 }
 
 footer{

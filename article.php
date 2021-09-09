@@ -1,5 +1,5 @@
 <!-- Include Head -->
-<?php include "assest/head.php"; ?>
+<?php include "config/head.php"; ?>
 <?php
 
 // Check if the admin is already logged in, if yes then redirect him to home page
@@ -26,7 +26,7 @@ $data = $stmt->fetchAll();
 <body>
 
     <!-- Header -->
-    <?php include "assest/header.php" ?>
+    <?php include "config/header.php" ?>
     <!-- </Header> -->
 
     <!-- Main -->
@@ -68,7 +68,6 @@ $data = $stmt->fetchAll();
                         foreach ($data as $row) :
                             echo "<tr>";
                             ?>
-
                             <td><?= $row['article_id'] ?></td>
                             <td><?= $row['article_title'] ?></td>
                             <td class="text-break"><?= strip_tags(substr($row['article_content'], 0, 40)) . "..." ?></td>
@@ -77,7 +76,6 @@ $data = $stmt->fetchAll();
                             <td><?= $row['article_created_time'] ?></td>
                             <td><?= $row['category_name'] ?></td>
                             <td><?= $row['author_fullname'] ?></td>
-
                             <td>
                                 <a class="btn btn-info" href="artikel-dapur-tolisfresh-terbaru.php?id=<?= $row['article_id'] ?> ">
                                     <i class="fa fa-eye" aria-hidden="true"></i>
@@ -89,11 +87,10 @@ $data = $stmt->fetchAll();
                                 </a>
                             </td>
                             <td>
-                                <a class="btn btn-danger" href="assest/delete.php?type=article&id=<?= $row['article_id'] ?> ">
+                                <a class="btn btn-danger" href="config/delete.php?type=article&id=<?= $row['article_id'] ?> ">
                                     <i class="fa fa-trash " aria-hidden="true"></i>
                                 </a>
                             </td>
-
                         <?php
                             echo "</tr>";
                         endforeach;
@@ -108,7 +105,7 @@ $data = $stmt->fetchAll();
     </main>
 
     <!-- Footer -->
-    <!-- <?php include "assest/footer.php" ?> -->
+    <!-- <?php include "config/footer.php" ?> -->
 
 
 </body>

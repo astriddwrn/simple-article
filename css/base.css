@@ -3,14 +3,14 @@
 *{
     padding: 0;
     margin: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 :root{
-    --dark-green: #197B30;
-    --light-green: #9BFFB3;
+    --dark-green: #ff4933;
+    --light-green: #ffc20d;
     --gray: #434343;
-    --category-blue: #003DDB;
-    --button: linear-gradient(180deg, #197B30 0%, #27A043 100%);
+    --button: linear-gradient(180deg, #ff4933 0%, rgb(250, 25, 66) 100%);
 }
 
 li{
@@ -48,7 +48,7 @@ a:hover {
 
 @media all and (max-width: 480px) {
     .padding-section{
-        padding-right: 1rem;
-        padding-left: 1rem;
+        padding-right: 1rem !important;
+        padding-left: 1rem !important;
     }
 }

@@ -1,0 +1,12 @@
+DirectoryIndex index.php
+RewriteEngine On
+
+RewriteRule ^/?$ index.php [L,NC]
+
+# ignore files/directories from further rules
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+RewriteRule ^artikel/([^/]+)/?$ viewArticle.php/ [L,QSA,NC]
+RewriteRule ^artikel-kategori/([^/]+)/?$ kategori-artikel.php?name=$1 [L,QSA,NC]

@@ -1,4 +1,4 @@
-<?php include "assest/head.php"; ?>
+<?php include "config/head.php"; ?>
 <?php
 
 // Check if the user is already logged in, if yes then redirect him to welcome page
@@ -47,8 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     if ($row = $stmt->fetch()) {
                         $id = $row["id"];
                         $username = $row["username"];
-                        $password = $row["password"];
-                        if ($password) {
+                        $hashed_password = $row["password"];
+                        if (password_verify($password, $hashed_password)) {
                             // Password is correct, so start a new session
                             session_start();
 
@@ -71,12 +71,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 echo "Oops! Something went wrong. Please try again later.";
             }
-
             // Close statement
             unset($stmt);
         }
     }
-
     // Close connection
     unset($pdo);
 }
@@ -99,16 +97,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:700%7CNunito:300,600" rel="stylesheet">
-
-
+    
     <title>Login</title>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-
-    <!-- Header -->
-    <?php include "assest/header.php" ?>
-    <!-- </Header> -->
 
     <!-- Main -->
     <main class="main">
@@ -119,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="container d-flex flex-column justify-content-center align-items-center h-100">
 
                 <div class="wrapper my-0 pt-3 bg-white text-center" style="min-width: 300px!important;">
-                    <img src="img/logo/logo-tolisfresh_blog.png" alt="Artikel TolisFresh" style="height: 50px;">
+                    <a href="index.php"><img src="img/logo/logo.png" alt="Artikel TolisFresh" style="height: 50px;"></a>
                 </div>
 
                 <!-- row -->
@@ -139,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="form-group">
                             <input type="submit" class="btn btn-success" value="Login">
                         </div>
-                        <p><a href="#" class="text-muted">Lost your password?</a></p>
+                        <!-- <p><a href="#" class="text-muted">Lost your password?</a></p> -->
                     </form>
                 </div>
 
@@ -153,7 +146,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </main><!-- </Main> -->
 
     <!-- Footer -->
-    <!-- <?php include "assest/footer.php" ?> -->
+    <!-- <?php include "config/footer.php" ?> -->
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>

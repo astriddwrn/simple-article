@@ -8,9 +8,10 @@ if (!$loggedin) {
     exit;
 }
 
-$stmt = $conn->prepare("SELECT * FROM category");
+// Get all Articles Data
+$stmt = $conn->prepare("SELECT * FROM article, author, category WHERE id_categorie = category_id AND author_id = id_author ORDER BY article_id DESC");
 $stmt->execute();
-$categories = $stmt->fetchAll();
+$data = $stmt->fetchAll();
 
 ?>
 
@@ -30,32 +31,35 @@ $categories = $stmt->fetchAll();
         <div class="mx-4"><a href="categories.php" class=" text-center w-100">Kategori</a></div>
         <div><a href="author.php" class=" text-center w-100">Author</a></div>
     </div>
-    <div class="text-right w-100 mb-3"><a href="add_category.php"><img class="add" src="./img/icon/add.svg" alt=""></a></div>
+    
+    <div class="text-right w-100 mb-3"><a href="add_article.php"><img class="add" src="./img/icon/add.svg" alt=""></a></div>
     
 
 <table class="table table-borderless table-condensed table-hover">
     <thead>
         <tr>
-            <th class="judul" scope="col">Kategori</th>
-            <th class="penulis" scope="col">Warna</th>
+            <th class="judul" scope="col">Artikel</th>
+            <th class="penulis" scope="col">Penulis</th>
+            <th class="kategori" scope="col">Kategori</th>
             <th class="aksi" scope="col">Aksi</th>
         </tr>
     </thead>
     <tbody>
         <?php
-            foreach ($categories as $row) :
+            foreach ($data as $row) :
                 ?>
                 <tr>
-                    <td><?= $row['category_name'] ?></td>
-                    <td class="penulis" style="color: <?= $row['category_color'] ?>"><?= $row['category_color'] ?></td>
+                    <td><?= $row['article_title'] ?></td>
+                    <td class="penulis"><?= $row['author_fullname'] ?></td>
+                    <td class="kategori"><?= $row['category_name'] ?></td>
                     <td>
-                        <a class="view" href="kategori-artikel.php?id=<?= $row['category_id'] ?> ">
+                        <a class="view" href="artikel/<?= $row['article_slug'] ?> ">
                             <img  class="icon" src="./img/icon/eye.png" alt="">
                         </a>
-                        <a href="update_category.php?id=<?= $row['category_id'] ?> ">
+                        <a href="update_article.php?id=<?= $row['article_id'] ?> ">
                             <img class="icon mx-2 edit" src="./img/icon/edit.png" alt="">
                         </a>
-                        <a class="delete" href="config/delete.php?type=category&id=<?= $row['category_id'] ?> ">
+                        <a class="delete" href="config/delete.php?type=article&id=<?= $row['article_id'] ?> ">
                             <img class="icon" src="./img/icon/trash.png" alt="">
                         </a>
                     </td>
@@ -67,7 +71,9 @@ $categories = $stmt->fetchAll();
     </table>
 
     <script src=""></script>
+   
+
+
+
 
 </body>
-
-</html>
