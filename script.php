@@ -1,14 +1,22 @@
-<?php include "config/head.php"; ?>
+<?php require "./config/head.php";
 
-<?php 
+$stmt = $conn->prepare("SELECT * FROM `article` WHERE `article_published` = ? order by `article_created_time` ASC LIMIT 1");
+$stmt->execute([0]);
+$articles = $stmt->fetch();
 
-$sql = "UPDATE `article`
-    SET article_published` = ?
-    WHERE `article_published` = ?
-    order by `article_created_time` ASC LIMIT 1";
+$id = $articles['article_id'];
 
-$stmt = $conn->prepare($sql);
+try{
+    $sql = "UPDATE `article`
+    SET `article_published` = ?
+    WHERE `article_id` = ?";
 
-$stmt->execute([1, 0]);
+    $stmt = $conn->prepare($sql);
+
+    $stmt->execute([1, $id]);
+}
+catch (PDOException $e) {
+    echo $e->getMessage();
+}
 
 ?>
